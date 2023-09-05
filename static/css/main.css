@@ -98,8 +98,10 @@ h1,h2,h3,h4,h5,h6{
 	display: none!important;
 }
 
-.navbar-brand-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+
+.logo {
+    max-width: 95px; /* Imposta la larghezza massima desiderata */
+    height: auto;     /* Imposta l'altezza in base all'immagine originale */
+	margin-left: 20px;
 }
