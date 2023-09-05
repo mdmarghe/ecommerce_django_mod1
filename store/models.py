@@ -15,6 +15,11 @@ class Product(models.Model):
 	price = models.FloatField()
 	digital = models.BooleanField(default=False,null=True, blank=True)
 	image = models.ImageField(null=True, blank=True)
+	producer = models.CharField(max_length=200, null=True, blank=True)
+	denomination = models.CharField(max_length=200, null=True, blank=True)
+	grape_variety = models.CharField(max_length=200, null=True, blank=True)
+	crianza = models.CharField(max_length=200, null=True, blank=True)
+
 
 	def __str__(self):
 		return self.name
