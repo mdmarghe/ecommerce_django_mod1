@@ -17,10 +17,10 @@ def store(request):
 	context = {'products':products, 'cartItems':cartItems}
 	return render(request, 'store/store.html', context)
 
-def event_list(request):
+def event(request):
     events = Event.objects.all()  # Recupera tutti gli eventi dal database
     context = {'events': events}  # Crea un contesto da passare al template
-    return render(request, 'event_list.html', context)
+    return render(request, 'store/event.html', context)
 
 
 def cart(request):
