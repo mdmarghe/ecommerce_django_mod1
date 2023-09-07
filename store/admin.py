@@ -8,5 +8,4 @@ admin.site.register(Product)
 admin.site.register(Order)
 admin.site.register(OrderItem)
 admin.site.register(ShippingAddress)
-admin.site.register(Event)
 # Register your models here.
