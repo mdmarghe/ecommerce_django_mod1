@@ -6,7 +6,7 @@ import datetime
 from .utils import cookieCart, cartData, guestOrder
 # Create your views here.
 
-def store(request):
+def events(request):
 	data = cartData(request)
 
 	cartItems = data['cartItems']
@@ -15,7 +15,16 @@ def store(request):
 
 	products = Product.objects.all()
 	context = {'products':products, 'cartItems':cartItems}
-	return render(request, 'store/store.html', context)
+	return render(request, 'events/events.html', context)
+
+
+def catas(request):
+	context = {}
+	return render(request,'events/catas.html', context)
+
+def rutas(request):
+	context = {}
+	return render(request,'events/rutas.html', context)
 
 
 def cart(request):
@@ -26,7 +35,7 @@ def cart(request):
 	items = data['items']
 
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
-	return render(request, 'store/cart.html', context)
+	return render(request, 'events/cart.html', context)
 
 
 def checkout(request):
@@ -37,7 +46,7 @@ def checkout(request):
 	items = data['items']
 
 	context = {'items':items, 'order':order, 'cartItems':cartItems}
-	return render(request, 'store/checkout.html', context)
+	return render(request, 'events/checkout.html', context)
 
 
 def updateItem(request):
@@ -84,13 +93,7 @@ def processOrder(request):
 	order.save()
 
 	if order.shipping == True:
-		ShippingAddress.objects.create(
 		customer=customer,
 		order=order,
-		address=data['shipping']['address'],
-		city=data['shipping']['city'],
-		state=data['shipping']['state'],
-		zipcode=data['shipping']['zipcode'],
-		)
-
+		
 	return JsonResponse('Payment submitted..', safe=False)
